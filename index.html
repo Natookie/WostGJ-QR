@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inTVernship</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: 2px dotted #ff00aa;
+    }
+
+    body {
+      background: repeating-linear-gradient(
+        45deg,
+        #ffb347,
+        #ffb347 15px,
+        #8b00ff 15px,
+        #8b00ff 30px
+      );
+      font-family: 'Comic Sans MS', 'Papyrus', 'Chalkboard SE', cursive;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 7px 2px 33px 19px;
+      border: 17px solid lime;
+      border-style: ridge double dashed dotted;
+      margin: 9px;
+      transform: rotate(0.3deg);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: #ff00ff;
+      color: #00ff00;
+      font-size: 3.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 12px;
+      word-spacing: 30px;
+      padding: 7px 3px 27px 13px;
+      margin-bottom: -17px;
+      border: 9px double cyan;
+      border-radius: 80% 20% 70% 30% / 40% 60% 30% 70%;
+      text-shadow: 7px 7px 0 #000, -3px -3px 0 red, 9px -5px 0 blue;
+      transform: rotate(-3deg) skewX(7deg);
+      box-shadow: 0 0 0 13px yellow, 0 0 0 26px #ff00ff;
+      width: 105%;
+      text-align: left;
+      padding-left: 47px;
+      position: relative;
+      z-index: 99;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: 'Impact', 'Arial Black', fantasy;
+    }
+
+    .subheader {
+      background: #000;
+      color: #ff0;
+      font-size: 1.4rem;
+      padding: 6px 22px;
+      margin-top: 33px;
+      border: 7px ridge #ff1493;
+      transform: rotate(1.5deg) scaleX(1.1);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      box-shadow: 7px 7px 0 #0ff, -7px -7px 0 #f0f;
+      z-index: 100;
+      position: relative;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ===== GRID  ===== */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 37px 11px;
+      background: #000;
+      padding: 43px 12px 51px 32px;
+      border: 13px groove #ff4500;
+      margin-top: 47px;
+      transform: rotate(1.2deg) scaleX(0.97);
+      width: 98%;
+      max-width: 1100px;
+      border-radius: 60px 10px 90px 4px;
+      box-shadow: inset 0 0 0 7px #0ff, 0 0 0 18px #ff00ae;
+      overflow: visible;
+      position: relative;
+      left: -6px;
+    }
+
+    /* ===== EACH CARD ===== */
+    .card {
+      background: #ffe600;
+      border: 11px ridge #ff1493;
+      border-right: 5px dotted #00ffcc;
+      border-bottom: 19px double #9400d3;
+      padding: 13px 2px 31px 3px;
+      margin: 4px -2px 19px 7px;
+      transform: rotate(2deg) translateY(7px) skew(-4deg, 1deg);
+      box-shadow: 13px 13px 0 0 #ff0000, -7px -7px 0 0 #00ffff,
+                  0 0 0 11px #ffff00;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      transition: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:nth-child(1) {
+      transform: rotate(-5deg) scale(1.03) translateX(18px);
+      background: #ffcc00;
+      margin-top: 23px;
+    }
+
+    .card:nth-child(2) {
+      transform: rotate(11deg) skewX(6deg) translateY(-15px);
+      background: #a200ff;
+      border-color: #ff0;
+      margin-left: -27px;
+      z-index: 5;
+    }
+
+    .card:nth-child(3) {
+      transform: rotate(-1deg) scale(0.94) translateY(31px);
+      background: #00fa9a;
+      border: 9px inset #ff69b4;
+      margin-right: -24px;
+      margin-left: 21px;
+      opacity: 0.95;
+    }
+
+    .card:nth-child(4) {
+      transform: rotate(7deg) translateX(-13px);
+      background: #ff4500;
+      border: 15px outset #00bfff;
+      margin-top: -38px;
+      z-index: 3;
+    }
+
+    .card:nth-child(5) {
+      transform: rotate(-9deg) skewY(5deg);
+      background: #ffff00;
+      border: 7px dashed #8a2be2;
+      margin-bottom: 41px;
+      padding-left: 23px;
+      z-index: 2;
+    }
+
+    .card:nth-child(6) {
+      transform: rotate(4deg) scale(1.04) translateY(-7px);
+      background: #ff1493;
+      border: 13px double #00ff7f;
+      margin-left: -11px;
+      margin-top: 39px;
+      z-index: 4;
+    }
+
+    .image-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border: 6px solid #ff00dd;
+      border-radius: 12% 4% 18% 6% / 6% 14% 4% 18%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      transform: rotate(0.7deg);
+      box-shadow: 5px 5px 0 #00f, -4px -4px 0 #0ff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #111;
+      filter: saturate(220%) contrast(160%) drop-shadow(4px 4px 0 #0000ff);
+      padding: 3px;
+    }
+
+    .card:nth-child(1) img { filter: saturate(300%) contrast(180%) drop-shadow(5px 5px 0 #f0f); }
+    .card:nth-child(2) img { filter: hue-rotate(15deg) saturate(250%) drop-shadow(4px 4px 0 #0ff); }
+    .card:nth-child(3) img { filter: hue-rotate(-10deg) saturate(260%) contrast(150%) drop-shadow(4px 4px 0 #ff0); }
+    .card:nth-child(4) img { filter: contrast(200%) saturate(200%) drop-shadow(5px 5px 0 #0f0); }
+    .card:nth-child(5) img { filter: saturate(280%) brightness(1.1) drop-shadow(4px 4px 0 #f00); }
+    .card:nth-child(6) img { filter: hue-rotate(25deg) saturate(220%) drop-shadow(5px 5px 0 #00f); }
+
+    /* ===== IMAGE ID LABEL ===== */
+    .image-id {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #ffffff;
+      background: #000000;
+      border: 6px solid #ff0000;
+      padding: 1px 18px 3px 14px;
+      margin-top: -12px;
+      margin-left: -5px;
+      transform: rotate(-4deg) translateX(9px) scaleX(1.1);
+      letter-spacing: 4px;
+      text-shadow: 3px 3px 0 #ff00ff, -3px -3px 0 #00ffff;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      z-index: 10;
+      position: relative;
+      box-shadow: 7px 7px 0 #00ff00, -5px -5px 0 #ff00ff;
+      display: inline-block;
+    }
+
+    /* ===== CAPTION ===== */
+    .caption {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #0000ff;
+      text-shadow: 2px 2px 0 #ff0, -2px -2px 0 #f0f;
+      background: #ffffff;
+      border: 4px solid #ff00ff;
+      padding: 2px 9px 2px 4px;
+      margin-top: 6px;
+      margin-left: -3px;
+      transform: rotate(-3deg) translateX(7px);
+      width: fit-content;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      font-family: 'Courier New', 'Comic Sans MS', monospace;
+      letter-spacing: 2px;
+      line-height: 1;
+      z-index: 10;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .card:nth-child(1) .caption,
+    .card:nth-child(6) .caption {
+      background: #000;
+      color: #ff0;
+      border: 3px dotted lime;
+      transform: rotate(6deg) translateX(-9px) scaleX(1.1);
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .card:nth-child(3) .caption {
+      font-size: 0.85rem;
+      letter-spacing: -1px;
+      background: #ff00ff;
+      color: #00ff00;
+      margin-left: 15px;
+      transform: rotate(0deg) scaleY(1.4);
+    }
+
+    /* ===== FLOATING INSTRUCTION / FOOTER ===== */
+    .footer {
+      font-size: 1.8rem;
+      background: #000;
+      color: #ff00ff;
+      border: 12px dotted #00ff00;
+      padding: 9px 17px 7px 29px;
+      margin-top: 21px;
+      transform: rotate(-3deg) scaleX(1.05) translateY(9px);
+      font-family: 'Times New Roman', serif;
+      text-decoration: underline overline line-through;
+      letter-spacing: -1px;
+      word-spacing: 12px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 13px 13px 0 0 cyan, -9px -9px 0 0 magenta;
+      z-index: 999;
+      position: relative;
+      left: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 27px; background: lime; }
+    ::-webkit-scrollbar-thumb {
+      background: repeating-linear-gradient(
+        90deg,
+        #ff00ff,
+        #ff00ff 7px,
+        #00ffff 7px,
+        #00ffff 14px
+      );
+      border: 7px double #ff0000;
+      border-radius: 0 100% 0 100%;
+    }
+
+    .grid-container::before {
+      content: "⚠️ SCAN & PICK ⚠️";
+      position: absolute;
+      top: -37px;
+      left: 13px;
+      font-size: 2.2rem;
+      color: #ff0000;
+      background: #ffff00;
+      padding: 3px 17px;
+      border: 5px dashed #000;
+      transform: rotate(9deg);
+      z-index: 1000;
+      font-family: 'Impact', fantasy;
+      letter-spacing: 7px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">inTVernship</div>
+
+  <div class="subheader">▼ pick the right thumbnail ▼</div>
+
+  <div class="grid-container">
+
+    <!-- ID 1 -->
+    <div class="card" data-image-id="1">
+      <div class="image-wrap">
+        <img src="https://picsum.photos/id/1015/640/360" alt="TV studio thumbnail 1">
+      </div>
+      <div class="image-id">ID: 1</div>
+      <div class="caption">studio shot A</div>
+    </div>
+
+    <!-- ID 2 -->
+    <div class="card" data-image-id="2">
+      <div class="image-wrap">
+        <img src="https://picsum.photos/id/1043/640/360" alt="TV studio thumbnail 2">
+      </div>
+      <div class="image-id">ID: 2</div>
+      <div class="caption">control room</div>
+    </div>
+
+    <!-- ID 3 -->
+    <div class="card" data-image-id="3">
+      <div class="image-wrap">
+        <img src="https://picsum.photos/id/106/640/360" alt="TV studio thumbnail 3">
+      </div>
+      <div class="image-id">ID: 3</div>
+      <div class="caption">stage lights</div>
+    </div>
+
+    <!-- ID 4 -->
+    <div class="card" data-image-id="4">
+      <div class="image-wrap">
+        <img src="https://picsum.photos/id/107/640/360" alt="TV studio thumbnail 4">
+      </div>
+      <div class="image-id">ID: 4</div>
+      <div class="caption">anchor desk</div>
+    </div>
+
+    <!-- ID 5 -->
+    <div class="card" data-image-id="5">
+      <div class="image-wrap">
+        <img src="https://picsum.photos/id/108/640/360" alt="TV studio thumbnail 5">
+      </div>
+      <div class="image-id">ID: 5</div>
+      <div class="caption">camera crew</div>
+    </div>
+
+    <!-- ID 6 -->
+    <div class="card" data-image-id="6">
+      <div class="image-wrap">
+        <img src="https://picsum.photos/id/109/640/360" alt="TV studio thumbnail 6">
+      </div>
+      <div class="image-id">ID: 6</div>
+      <div class="caption">green screen</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    ⚡ remember the ID number ⚡
+  </div>
+
+</body>
+</html>
